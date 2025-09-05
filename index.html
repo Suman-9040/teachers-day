@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Teachers' Day</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    perspective: 1px;
+    height: 100%;
+  }
+  header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px 20px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  header.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff4b2b;
+    animation: fadeIn 2s ease;
+  }
+  header p {
+    font-size: 1.5rem;
+    color: #e413a6;
+    animation: fadeIn 3s ease;
+  }
+  .scroll-down {
+    margin-top: 40px;
+    width: 30px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+  }
+  .scroll-down::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+  }
+  @keyframes scroll {
+    0% { top: 10px; opacity: 0; }
+    50% { top: 30px; opacity: 1; }
+    100% { top: 50px; opacity: 0; }
+  }
+  @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+  section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .section-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    gap: 20px;
+  }
+  .photo, .quote {
+    width: 45%;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease, transform 0.5s ease;
+    will-change: transform, opacity;
+  }
+  .photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  .photo img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .quote { font-size: 1.2rem; transition: transform 0.5s ease, color 0.5s ease; cursor: pointer; }
+  .quote:hover { transform: scale(1.05); color: #ff4b2b; }
+  .left { transform: translateX(-50px); }
+  .right { transform: translateX(50px); }
+  .section-row.show .left, .section-row.show .right {
+    transform: translateX(0);
+    opacity:1;
+  }
+  .petal, .flower, .confetti {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear infinite;
+  }
+  .petal { background: pink; width: 10px; height: 10px; }
+  .flower { background: #ff69b4; width: 8px; height: 8px; }
+  .confetti { background: #fff; width: 6px; height: 6px; }
+  @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg);} 100% { transform: translateY(110vh) rotate(360deg);} }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<header id="home">
+  <h1>🌸 Happy Teachers' Day MAM 🌸</h1>
+  <p>Celebrating the heart and soul of our learning journey!</p>
+  <p>Scroll down to see our special tribute with photos and quotes.</p>
+  <div class="scroll-down"></div>
+</header>
+
+<section class="section-row">
+  <div class="photo left" data-speed="0.3"><img src="photo1.jpg" alt="Photo 1"></div>
+  <div class="quote right" data-speed="0.5">“A teacher takes a hand, opens a mind, and touches a heart.”</div>
+</section>
+
+<section class="section-row">
+  <div class="quote left" data-speed="0.4">“Teaching is the one profession that creates all other professions.”</div>
+  <div class="photo right" data-speed="0.3"><img src="photo2.jpg" alt="Photo 2"></div>
+</section>
+
+<section class="section-row">
+  <div class="photo left" data-speed="0.3"><img src="photo3.jpg" alt="Photo 3"></div>
+  <div class="quote right" data-speed="0.5">“The best teachers teach from the heart, not from the book.”</div>
+</section>
+
+<section class="section-row">
+  <div class="quote left" data-speed="0.4">“To the world you may be just a teacher, but to your students you are a hero.”</div>
+  <div class="photo right" data-speed="0.3"><img src="photo4.jpg" alt="Photo 4"></div>
+</section>
+
+<section class="section-row">
+  <div class="photo left" data-speed="0.3"><img src="photo5.jpg" alt="Photo 5"></div>
+  <div class="quote right" data-speed="0.5">“Every child deserves a champion—an adult who will never give up on them.”</div>
+</section>
+
+<footer style="text-align:center;padding:40px;font-weight:bold;color:#444;">Made with ❤️ by Your Student SumanKishore Behera</footer>
+
+<script>
+// Generate petals, small flowers, and confetti
+function createFallingElement(className, count, minSize, maxSize, minDuration, maxDuration) {
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = className;
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.width = minSize + Math.random() * (maxSize - minSize) + 'px';
+    el.style.height = minSize + Math.random() * (maxSize - minSize) + 'px';
+    el.style.animationDuration = minDuration + Math.random() * (maxDuration - minDuration) + 's';
+    document.body.appendChild(el);
+  }
+}
+createFallingElement('petal', 20, 8, 12, 5, 10);
+createFallingElement('flower', 15, 6, 10, 4, 8);
+createFallingElement('confetti', 20, 4, 6, 3, 7);
+
+// Scroll animation with parallax and fade-in
+const sections = document.querySelectorAll('section, header');
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight / 5 * 4;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if(sectionTop < triggerBottom) {
+      section.classList.add('show');
+      const children = section.querySelectorAll('[data-speed]');
+      children.forEach(child => {
+        const speed = parseFloat(child.getAttribute('data-speed'));
+        child.style.transform = `translateY(${window.scrollY * speed}px)`;
+        child.classList.add('show');
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
